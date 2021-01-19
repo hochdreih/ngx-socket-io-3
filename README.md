@@ -1,19 +1,16 @@
-# ngx-socket-io
-[![Build Status](https://travis-ci.org/rodgc/ngx-socket-io.svg?branch=master)](https://travis-ci.org/rodgc/ngx-socket-io)
-[![npm version](https://badge.fury.io/js/ngx-socket-io.svg)](https://badge.fury.io/js/ngx-socket-io)
-[![npm downloads](https://img.shields.io/badge/Downloads-132%2Fmonth-brightgreen.svg)](https://github.com/rodgc/ngx-socket-io)
+# ngx-socket-io-3
 
-[Socket.IO](http://socket.io/) module for Angular
+[Socket.IO 3](http://socket.io/) module for Angular
 
 ## Install
-``` npm install ngx-socket-io ```
+``` npm install @hochdreih/ngx-socket-io-3 ```
 
 ## How to use
 
 ### Import and configure SocketIoModule
 
 ```ts
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { SocketIoModule, SocketIoConfig } from '@hochdreih/ngx-socket-io-3';
 
 const config: SocketIoConfig = { url: 'http://localhost:8988', options: {} };
 
@@ -116,7 +113,12 @@ The only addition is the ```fromEvent``` method, which returns an ```Observable`
 
 ### `socket.of(namespace: string)`
 
-Takes an namespace.
+Takes a namespace.
+Works the same as in Socket.IO.
+
+### `socket.onAny(callback: Function)`
+
+Takes a callback.
 Works the same as in Socket.IO.
 
 ### `socket.on(eventName: string, callback: Function)`
@@ -150,7 +152,7 @@ Creates a Promise for a one-time event.
 You should keep a reference to the Observable subscription and unsubscribe when you're done with it.
 This prevents memory leaks as the event listener attached will be removed (using ```socket.removeListener```) ONLY and when/if you unsubscribe.
 
-If you have multiple subscriptions to an Observable only the last unsubscription will remove the listener.
+If, you have multiple subscriptions to an Observable only the last unsubscription will remove the listener.
 
 ## Know Issue
 
@@ -167,10 +169,6 @@ For `error TS2345` you need to add this to your `tsconfig.json`.
   },
 }
 ```
-
-## Related projects
-
-- [bougarfaoui/ng-socket-io](https://github.com/bougarfaoui/ng-socket-io) - Socket.IO module for Angular
 
 ## LICENSE
 

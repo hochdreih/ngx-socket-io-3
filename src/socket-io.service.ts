@@ -32,6 +32,16 @@ export class WrappedSocket {
     on(eventName: string, callback: Function) {
         this.ioSocket.on(eventName, callback);
     }
+    onAny(callback: Function) {
+        this.ioSocket.onAny(callback);
+    }
+    prependAny(eventName: string, callback: Function) {
+        this.ioSocket.prependAny(eventName, callback);
+    }
+    offAny(){
+        this.ioSocket.offAny();
+    }
+    
 
     once(eventName: string, callback: Function) {
         this.ioSocket.once(eventName, callback);
